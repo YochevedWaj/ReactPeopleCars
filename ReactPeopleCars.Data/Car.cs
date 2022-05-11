@@ -15,7 +15,7 @@ namespace ReactPeopleCars.Data
         public int Year { get; set; }
         public int PersonID { get; set; }
 
-        [JsonIgnore]
-        public Person Person { get; set; }
+        //[JsonIgnore]
+        //public Person Person { get; set; }
     }
 }

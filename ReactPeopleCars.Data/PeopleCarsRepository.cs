@@ -39,5 +39,11 @@ namespace ReactPeopleCars.Data
             context.Cars.Add(car);
             context.SaveChanges();
         }
+
+        public void DeleteCarsForPerson(int personID)
+        {
+            using var context = new PeopleCarsContext(_connectionString);
+            context.Database.ExecuteSqlInterpolated($"DELETE FROM Cars WHERE PersonID = {personID}");
+        }
     }
 }

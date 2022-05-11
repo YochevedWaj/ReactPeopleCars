@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function PersonRow({ person }) {
     const { firstName, lastName, age, cars, id } = person;
     return (
-        <tr>
+        <tr key={id}>
             <td>{firstName}</td>
             <td>{lastName}</td>
             <td>{age}</td>
@@ -15,7 +15,9 @@ export default function PersonRow({ person }) {
                 </Link>
             </td>
             <td>
-                <button className='btn btn-danger'>Delete Cars</button>
+                <Link to={`/deletecars/${id}`}>
+                    <button className='btn btn-danger'>Delete Cars</button>
+                </Link>
             </td>
         </tr>
     )

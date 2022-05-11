@@ -19,6 +19,8 @@ namespace ReactPeopleCars.Web.Controllers
         {
             _connectionString = configuration.GetConnectionString("ConStr");
         }
+
+        [HttpGet]
         [Route("getall")]
         public List<Person> GetAll()
         {
@@ -26,8 +28,8 @@ namespace ReactPeopleCars.Web.Controllers
             return repo.GetAll();
         }
 
-        [Route("addperson")]
         [HttpPost]
+        [Route("addperson")]      
         public void AddPerson(Person person)
         {
             var repo = new PeopleCarsRepository(_connectionString);
@@ -35,8 +37,8 @@ namespace ReactPeopleCars.Web.Controllers
 
         }
 
-        [Route("addcar")]
         [HttpPost]
+        [Route("addcar")]     
         public void AddCar(Car car)
         {
             var repo = new PeopleCarsRepository(_connectionString);
@@ -44,6 +46,15 @@ namespace ReactPeopleCars.Web.Controllers
 
         }
 
+        [HttpPost]
+        [Route("DeleteCarsForPerson")]
+        public void DeleteCarsForPerson(Person person)
+        {
+            var repo = new PeopleCarsRepository(_connectionString);
+            repo.DeleteCarsForPerson(person.ID);
+        }
+
+        [HttpGet]
         [Route("getbyid")]
         public Person GetByID(int id)
         {

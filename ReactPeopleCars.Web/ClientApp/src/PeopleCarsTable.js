@@ -18,6 +18,7 @@ class PeopleCarsTable extends React.Component {
     render() {
         return (
             <div>
+
                 <table className='table table-hover table-bordered table-striped'>
                     <thead>
                         <tr>
@@ -31,7 +32,7 @@ class PeopleCarsTable extends React.Component {
                     </thead>
                     <tbody>
                         {this.state.people.map(p =>
-                            <PersonRow person={p} />
+                            <PersonRow person={p} key={p.id} />
                         )}
                     </tbody>
                 </table>
