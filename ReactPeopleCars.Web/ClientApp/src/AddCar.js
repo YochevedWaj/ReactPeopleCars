@@ -40,10 +40,12 @@ class AddCar extends React.Component {
     }
 
     render() {
+        const { firstName, lastName } = this.state.person;
         const { make, model, year } = this.state.car;
         return (
             <div clasName="row">
                 <div className="col-md-6 offset-md-3 card card-body bg-light">
+                    <h2>Add Car for {firstName} {lastName}</h2>
                     <input type="text" value={make} name='make' onChange={this.onTextChange} className="form-control" placeholder="Make" />
                     <br />
                     <input type="text" value={model} name='model' onChange={this.onTextChange} className="form-control" placeholder="Model" />
